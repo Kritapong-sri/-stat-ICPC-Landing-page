@@ -1012,6 +1012,13 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 12px;
 }
 
+.contact-nickname {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  margin-left: 4px;
+}
+
 .contact-email {
   display: flex;
   align-items: center;
