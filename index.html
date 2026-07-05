@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICPC Thailand 2026 – ภาคกลาง | คณะพาณิชยศาสตร์และการบัญชี จุฬาฯ</title>
+  <meta name="description" content="ICPC Thailand 2026 รอบภาคกลาง (Central Region) วันอาทิตย์ที่ 19 กรกฎาคม 2569 ณ คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <a href="https://icpc.foundation" target="_blank" rel="noopener" class="nav-sponsor-link">
+          <img src="logo-icpc-foundation.png" alt="ICPC Foundation" class="nav-sponsor-img" id="logo-icpc-foundation" />
+        </a>
+        <div class="nav-divider" aria-hidden="true"></div>
+        <a href="#home" class="nav-sponsor-link">
+          <img src="logo-icpc-stat-cbs.png" alt="ICPC @Stat CBS Chula" class="nav-sponsor-img nav-sponsor-img--tall" id="logo-icpc-central" />
+        </a>
+        <div class="nav-divider" aria-hidden="true"></div>
+        <a href="https://www.statistics.cbs.chula.ac.th" target="_blank" rel="noopener" class="nav-sponsor-link">
+          <img src="logo-dept-stat-chula.png" alt="Department of Statistics, Chulalongkorn Business School" class="nav-sponsor-img nav-sponsor-img--wide" id="logo-dept-stat" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#schedule">กำหนดการ</a></li>
+        <li><a href="#venue">แผนที่</a></li>
+        <li><a href="#info">ข้อมูล</a></li>
+        <li><a href="#contact">ติดต่อ</a></li>
+      </ul>
+      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">สมัครแข่งขัน</button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" aria-hidden="true">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge animate-fade-up" style="animation-delay:0.1s">
+        <span class="badge-dot"></span> ICPC Thailand 2026 · รอบคัดเลือก
+      </div>
+      <h1 class="hero-title animate-fade-up" style="animation-delay:0.2s">
+        ภาคกลาง<br />
+        <span class="hero-title-accent">Central Region</span>
+      </h1>
+      <p class="hero-subtitle animate-fade-up" style="animation-delay:0.35s">
+        International Collegiate Programming Contest
+      </p>
+
+      <div class="hero-info-cards animate-fade-up" style="animation-delay:0.5s">
+        <div class="info-card">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <div>
+            <div class="info-label">วันแข่งขัน</div>
+            <div class="info-value">อาทิตย์ที่ 19 กรกฎาคม 2569</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div>
+            <div class="info-label">สถานที่แข่งขัน</div>
+            <div class="info-value">คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions animate-fade-up" style="animation-delay:0.65s">
+        <a href="#schedule" class="btn-secondary">ดูกำหนดการ</a>
+        <a href="https://icpc.cs.sci.ku.ac.th/" target="_blank" rel="noopener" class="btn-register" id="hero-register-btn">
+          <i data-lucide="pencil-line" class="btn-icon"></i>
+          สมัครการแข่งขัน
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>เลื่อนลง</span>
+    </div>
+  </section>
+
+  <!-- ===== SECTION: SCHEDULE ===== -->
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Timeline</span>
+        <h2 class="section-title">กำหนดการแข่งขัน</h2>
+      </div>
+
+      <div class="schedule-container glass">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>เวลา</th>
+              <th>กิจกรรม</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="schedule-time">10:00 – 11:00 น.</td>
+              <td class="schedule-activity">พิธีเปิด และชี้แจงกฎกติกาการแข่งขัน</td>
+            </tr>
+            <tr>
+              <td class="schedule-time">11:00 – 12:00 น.</td>
+              <td class="schedule-activity">เข้าห้องคอมพิวเตอร์เพื่อทดสอบระบบ (Practice Session)</td>
+            </tr>
+            <tr>
+              <td class="schedule-time">12:00 – 13:00 น.</td>
+              <td class="schedule-activity">พักรับประทานอาหารกลางวัน</td>
+            </tr>
+            <tr class="highlight-row">
+              <td class="schedule-time">13:00 – 16:00 น.</td>
+              <td class="schedule-activity">
+                <span class="activity-badge">Contest</span>
+                <strong>การแข่งขัน (3 ชั่วโมง)</strong>
+              </td>
+            </tr>
+            <tr>
+              <td class="schedule-time">16:00 – 17:00 น.</td>
+              <td class="schedule-activity">พักเบรก และสรุปคะแนนการแข่งขัน</td>
+            </tr>
+            <tr>
+              <td class="schedule-time">17:00 น. เป็นต้นไป</td>
+              <td class="schedule-activity">พิธีปิด และประกาศผลการแข่งขัน</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION: VENUE MAP ===== -->
+  <section class="section section-dark" id="venue">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Venue</span>
+        <h2 class="section-title">แผนที่สถานที่</h2>
+        <p class="section-desc">ตึกมหิตลาธิเบศร และศูนย์คอมพิวเตอร์ คณะพาณิชยศาสตร์และการบัญชี จุฬาฯ</p>
+      </div>
+
+      <div class="venue-grid">
+        <!-- Map placeholder -->
+        <div class="venue-map glass">
+          <div class="map-placeholder">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="8" y="8" width="48" height="48" rx="4" stroke-dasharray="4 2" opacity="0.5"/>
+              <path d="M32 16C24.27 16 18 22.27 18 30c0 10.5 14 24 14 24s14-13.5 14-24c0-7.73-6.27-14-14-14z"/>
+              <circle cx="32" cy="30" r="4"/>
+              <rect x="14" y="44" width="8" height="8" rx="1" opacity="0.5"/>
+              <rect x="26" y="40" width="12" height="12" rx="1" opacity="0.5"/>
+              <rect x="42" y="46" width="8" height="6" rx="1" opacity="0.5"/>
+            </svg>
+            <p>แผนที่จะเพิ่มเติมภายหลัง</p>
+            <span>Floor plan & venue map coming soon</span>
+          </div>
+        </div>
+
+        <!-- Rooms list -->
+        <div class="venue-rooms">
+          <h3 class="rooms-title">ห้องและพื้นที่สำคัญ</h3>
+          <div class="rooms-list">
+            <div class="room-item glass">
+              <div class="room-icon">
+                <i data-lucide="monitor" class="room-lucide"></i>
+              </div>
+              <div class="room-info">
+                <div class="room-name">ห้องแข่งขัน (IT Studio)</div>
+                <div class="room-detail">ศูนย์คอมพิวเตอร์ — <em>ชั้น TBA</em></div>
+              </div>
+              <div class="room-badge">Main</div>
+            </div>
+
+            <div class="room-item glass">
+              <div class="room-icon">
+                <i data-lucide="landmark" class="room-lucide"></i>
+              </div>
+              <div class="room-info">
+                <div class="room-name">ห้องประชุม</div>
+                <div class="room-detail">ตึกมหิตลาธิเบศร — <em>ชั้น TBA</em></div>
+              </div>
+              <div class="room-badge">Meeting</div>
+            </div>
+
+            <div class="room-item glass">
+              <div class="room-icon">
+                <i data-lucide="door-open" class="room-lucide"></i>
+              </div>
+              <div class="room-info">
+                <div class="room-name">ห้องน้ำ</div>
+                <div class="room-detail">ทุกชั้นของอาคาร</div>
+              </div>
+            </div>
+
+            <div class="room-item glass">
+              <div class="room-icon">
+                <i data-lucide="utensils" class="room-lucide"></i>
+              </div>
+              <div class="room-info">
+                <div class="room-name">โรงอาหาร / พื้นที่พักผ่อน</div>
+                <div class="room-detail"><em>TBA</em></div>
+              </div>
+            </div>
+
+            <div class="room-item glass">
+              <div class="room-icon">
+                <i data-lucide="car" class="room-lucide"></i>
+              </div>
+              <div class="room-info">
+                <div class="room-name">ที่จอดรถ</div>
+                <div class="room-detail"><em>TBA</em></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="venue-note">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2zm1 11H9v-2h2v2zm0-4H9V7h2v2z"/></svg>
+            แผนผังอาคารฉบับละเอียดและเส้นทางการเดินทางจะประกาศในภายหลัง
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Maps embed placeholder -->
+      <div class="map-embed glass">
+        <iframe
+          id="google-map-frame"
+          title="แผนที่คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.697965!2d100.5280!3d13.7380!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f07dc8df30d%3A0xd25a04b1a3f1e29!2z4LiE4Lil4Li04Lip4Lix4LiX4Lie4Li04Lin4LiZ4Lix4LiaIOC4oeC4teC4mOC4lOC4quC4h-C4suC4muC4quC4h-C4suC4miDguIjguLLguJnguYDguILguKXguKPguJrguJk!5e0!3m2!1sth!2sth!4v1680000000000!5m2!1sth!2sth"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION: INFO ===== -->
+  <section class="section" id="info">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">About</span>
+        <h2 class="section-title">เกี่ยวกับการแข่งขัน</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-block glass">
+          <div class="info-block-icon">
+            <i data-lucide="trophy" class="info-lucide"></i>
+          </div>
+          <h3>ICPC คืออะไร?</h3>
+          <p>ICPC (International Collegiate Programming Contest) คือการแข่งขันโปรแกรมมิ่งระดับนานาชาติสำหรับนิสิตนักศึกษา ที่เก่าแก่และมีชื่อเสียงที่สุดในโลก โดยทีมละ 3 คน แข่งขันแก้โจทย์อัลกอริทึมภายในเวลาที่กำหนด</p>
+        </div>
+        <div class="info-block glass">
+          <div class="info-block-icon">
+            <i data-lucide="clipboard-list" class="info-lucide"></i>
+          </div>
+          <h3>รูปแบบการแข่งขัน</h3>
+          <p>ทีมละ 3 คน ใช้คอมพิวเตอร์ 1 เครื่อง แก้โจทย์โปรแกรมมิ่งประมาณ 10–12 ข้อ ภายใน 5 ชั่วโมง ใช้ภาษา C, C++, Java หรือ Python ได้</p>
+        </div>
+        <div class="info-block glass">
+          <div class="info-block-icon">
+            <i data-lucide="graduation-cap" class="info-lucide"></i>
+          </div>
+          <h3>คุณสมบัติผู้สมัคร</h3>
+          <p>นิสิตนักศึกษาระดับปริญญาตรีหรือเทียบเท่า ที่กำลังศึกษาอยู่ในสถาบันอุดมศึกษาในประเทศไทย ตามเงื่อนไข ICPC Regional Rules</p>
+        </div>
+        <div class="info-block glass">
+          <div class="info-block-icon">
+            <i data-lucide="globe" class="info-lucide"></i>
+          </div>
+          <h3>รอบการแข่งขัน</h3>
+          <p>ทีมที่ผ่านรอบภาคกลาง จะได้สิทธิ์เข้าแข่งขันรอบ ICPC Thailand National Contest และอาจได้เป็นตัวแทนประเทศไทยในรอบ Regional ของ ICPC ต่อไป</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION: CONTACT ===== -->
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Contact</span>
+        <h2 class="section-title">ติดต่อเรา</h2>
+        <p class="section-desc">มีคำถามหรือต้องการข้อมูลเพิ่มเติม ติดต่อได้ที่</p>
+      </div>
+
+
+
+      <div class="contact-single">
+        <div class="contact-card contact-card--solo glass">
+          <div class="contact-avatar">
+            <span>แ</span>
+          </div>
+          <div class="contact-info">
+            <div class="contact-role">ผู้ประสานงานการแข่งขัน</div>
+            <div class="contact-name">อาจารย์แพร</div>
+            <a class="contact-email" href="mailto:TBA@chula.ac.th" id="contact-email-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 9 10-9"/></svg>
+              <em>อีเมล: TBA — จะแจ้งให้ทราบเร็ว ๆ นี้</em>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-icpc">ICPC</span>
+          <span class="logo-th">Thailand 2026</span>
+          <span class="logo-badge">ภาคกลาง</span>
+        </div>
+        <p class="footer-tagline">International Collegiate Programming Contest · Central Region</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2569 ICPC Thailand 2026 – ภาคกลาง &nbsp;·&nbsp; คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย</p>
+        <p class="footer-note">Prototype — ข้อมูลบางส่วนอยู่ระหว่างการปรับปรุง</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
