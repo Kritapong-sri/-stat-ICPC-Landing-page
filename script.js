@@ -176,10 +176,14 @@ document.addEventListener('DOMContentLoaded', () => {
         item.className = 'team-list-item';
         item.innerHTML = `
           <div class="team-list-name">${team.name}</div>
-          <div class="team-list-uni">🎓 ${team.institution}</div>
+          <div class="team-list-uni"><i data-lucide="graduation-cap"></i>${team.institution}</div>
         `;
         container.appendChild(item);
       });
+      // Re-trigger Lucide icons for dynamically added elements
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
     }
   }
 
