@@ -94,12 +94,7 @@
       </div>
 
       <div class="hero-actions animate-fade-up" style="animation-delay:0.65s">
-        <a href="#schedule" class="btn-secondary">ดูกำหนดการ</a>
-        <a href="https://icpc.cs.sci.ku.ac.th/" target="_blank" rel="noopener" class="btn-register"
-          id="hero-register-btn">
-          <i data-lucide="pencil-line" class="btn-icon"></i>
-          สมัครการแข่งขัน
-        </a>
+        <a href="#schedule" class="btn-primary">ดูกำหนดการ</a>
       </div>
     </div>
 
@@ -125,20 +120,49 @@
             <tr>
               <th>เวลา</th>
               <th>กิจกรรม</th>
+              <th>สถานที่</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="schedule-time">10:00 – 11:00 น.</td>
+              <td class="schedule-time">08:30 – 09:30 น.</td>
+              <td class="schedule-activity">ลงทะเบียน</td>
+              <td class="schedule-location">
+                <div class="location-wrapper">
+                  <i data-lucide="map-pin" class="location-icon"></i>
+                  <span>ชั้นล่างอาคารมหิตลาธิเบศร</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="schedule-time">09:30 – 11:00 น.</td>
               <td class="schedule-activity">พิธีเปิด และชี้แจงกฎกติกาการแข่งขัน</td>
+              <td class="schedule-location">
+                <div class="location-wrapper">
+                  <i data-lucide="map-pin" class="location-icon"></i>
+                  <span>หอประชุม ชั้น 2 อาคารมหิตลาธิเบศร</span>
+                </div>
+              </td>
             </tr>
             <tr>
               <td class="schedule-time">11:00 – 12:00 น.</td>
               <td class="schedule-activity">เข้าห้องคอมพิวเตอร์เพื่อทดสอบระบบ (Practice Session)</td>
+              <td class="schedule-location">
+                <div class="location-wrapper">
+                  <i data-lucide="map-pin" class="location-icon"></i>
+                  <span>ชั้น 1, 2, 3 อาคารบัณฑิต กันตะบุตร</span>
+                </div>
+              </td>
             </tr>
             <tr>
               <td class="schedule-time">12:00 – 13:00 น.</td>
               <td class="schedule-activity">พักรับประทานอาหารกลางวัน</td>
+              <td class="schedule-location">
+                <div class="location-wrapper">
+                  <i data-lucide="map-pin" class="location-icon"></i>
+                  <span>ชั้นล่างอาคารมหิตลาธิเบศร</span>
+                </div>
+              </td>
             </tr>
             <tr class="highlight-row">
               <td class="schedule-time">13:00 – 16:00 น.</td>
@@ -146,14 +170,32 @@
                 <span class="activity-badge">Contest</span>
                 <strong>การแข่งขัน (3 ชั่วโมง)</strong>
               </td>
+              <td class="schedule-location">
+                <div class="location-wrapper">
+                  <i data-lucide="map-pin" class="location-icon"></i>
+                  <span>ชั้น 1, 2, 3 อาคารบัณฑิต กันตะบุตร</span>
+                </div>
+              </td>
             </tr>
             <tr>
-              <td class="schedule-time">16:00 – 17:00 น.</td>
+              <td class="schedule-time">16:00 – 16:30 น.</td>
               <td class="schedule-activity">พักเบรก และสรุปคะแนนการแข่งขัน</td>
+              <td class="schedule-location">
+                <div class="location-wrapper">
+                  <i data-lucide="map-pin" class="location-icon"></i>
+                  <span>ชั้นล่างอาคารมหิตลาธิเบศร</span>
+                </div>
+              </td>
             </tr>
             <tr>
-              <td class="schedule-time">17:00 น. เป็นต้นไป</td>
+              <td class="schedule-time">16:30 น. เป็นต้นไป</td>
               <td class="schedule-activity">พิธีปิด และประกาศผลการแข่งขัน</td>
+              <td class="schedule-location">
+                <div class="location-wrapper">
+                  <i data-lucide="map-pin" class="location-icon"></i>
+                  <span>หอประชุม ชั้น 2 อาคารมหิตลาธิเบศร</span>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -171,47 +213,39 @@
       </div>
 
       <div class="venue-grid">
-        <!-- Map placeholder -->
-        <div class="venue-map glass">
-          <div class="map-placeholder">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="8" y="8" width="48" height="48" rx="4" stroke-dasharray="4 2" opacity="0.5" />
-              <path d="M32 16C24.27 16 18 22.27 18 30c0 10.5 14 24 14 24s14-13.5 14-24c0-7.73-6.27-14-14-14z" />
-              <circle cx="32" cy="30" r="4" />
-              <rect x="14" y="44" width="8" height="8" rx="1" opacity="0.5" />
-              <rect x="26" y="40" width="12" height="12" rx="1" opacity="0.5" />
-              <rect x="42" y="46" width="8" height="6" rx="1" opacity="0.5" />
-            </svg>
-            <p>แผนที่จะเพิ่มเติมภายหลัง</p>
-            <span>Floor plan & venue map coming soon</span>
-          </div>
+        <!-- Interactive Google Map -->
+        <div class="map-embed glass">
+          <iframe id="google-map-frame" title="แผนที่คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย"
+            src="https://maps.google.com/maps?cid=3024128594937247561&amp;hl=th&amp;gl=TH&amp;output=embed"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
 
         <!-- Rooms list -->
         <div class="venue-rooms">
           <h3 class="rooms-title">ห้องและพื้นที่สำคัญ</h3>
           <div class="rooms-list">
-            <div class="room-item glass">
+            <a href="https://maps.app.goo.gl/c3Lr9wHacqCjqMpFA" target="_blank" rel="noopener" class="room-item glass">
               <div class="room-icon">
                 <i data-lucide="monitor" class="room-lucide"></i>
               </div>
               <div class="room-info">
                 <div class="room-name">ห้องแข่งขัน</div>
-                <div class="room-detail">ศูนย์คอมพิวเตอร์ — <em>ชั้น 1,2,3</em></div>
+                <div class="room-detail">อาคารบัณฑิต กันตะบุตร (ศูนย์คอมพิวเตอร์) — <em>ชั้น 1,2,3</em></div>
               </div>
               <div class="room-badge">Main</div>
-            </div>
+            </a>
 
-            <div class="room-item glass">
+            <a href="https://maps.app.goo.gl/bDr5Xs77c3qCTnJn6" target="_blank" rel="noopener" class="room-item glass">
               <div class="room-icon">
                 <i data-lucide="landmark" class="room-lucide"></i>
               </div>
               <div class="room-info">
                 <div class="room-name">ห้องประชุม</div>
-                <div class="room-detail">ตึกมหิตลาธิเบศร — <em>ชั้น 2 ห้อง 201</em></div>
+                <div class="room-detail">ตึกมหิตลาธิเบศร — <em>ชั้น 2</em></div>
               </div>
               <div class="room-badge">Meeting</div>
-            </div>
+            </a>
 
             <div class="room-item glass">
               <div class="room-icon">
@@ -229,7 +263,7 @@
               </div>
               <div class="room-info">
                 <div class="room-name">โรงอาหาร / พื้นที่พักผ่อน</div>
-                <div class="room-detail"><em>ใต้ตึกมหิตลาธิเบศร / จามจุรีสแควร์</em></div>
+                <div class="room-detail"><em>ชั้นล่างอาคารมหิตลาธิเบศร / จามจุรีสแควร์</em></div>
               </div>
             </div>
 
@@ -253,13 +287,7 @@
         </div>
       </div>
 
-      <!-- Google Maps embed placeholder -->
-      <div class="map-embed glass">
-        <iframe id="google-map-frame" title="แผนที่คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.697965!2d100.5280!3d13.7380!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f07dc8df30d%3A0xd25a04b1a3f1e29!2z4LiE4Lil4Li04Lip4Lix4LiX4Lie4Li04Lin4LiZ4Lix4LiaIOC4oeC4teC4mOC4lOC4quC4h-C4suC4muC4quC4h-C4suC4miDguIjguLLguJnguYDguILguKXguKPguJrguJk!5e0!3m2!1sth!2sth!4v1680000000000!5m2!1sth!2sth"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+
     </div>
   </section>
 
