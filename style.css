@@ -119,13 +119,13 @@ a { color: inherit; text-decoration: none; }
 
 .nav-divider {
   width: 1px;
-  height: 32px;
+  height: 36px;
   background: rgba(124,58,237,0.18);
   flex-shrink: 0;
 }
 
 .nav-sponsor-img {
-  height: 36px;
+  height: 42px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -139,12 +139,12 @@ a { color: inherit; text-decoration: none; }
 }
 
 .nav-sponsor-img--tall {
-  height: 40px;
+  height: 48px;
 }
 
 .nav-sponsor-img--wide {
-  height: 34px;
-  max-width: 200px;
+  height: 40px;
+  max-width: 220px;
 }
 
 /* keep old text classes for footer */
@@ -322,6 +322,16 @@ a { color: inherit; text-decoration: none; }
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 40px;
   letter-spacing: 0.5px;
+}
+
+.hero-organizer {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-weight: 500;
+  color: var(--clr-accent);
+  margin-top: -24px;
+  margin-bottom: 32px;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 12px rgba(124, 58, 237, 0.4);
 }
 
 .hero-info-cards {
@@ -1167,4 +1177,10 @@ a { color: inherit; text-decoration: none; }
   .section { padding: 72px 0; }
   .timeline-title { font-size: 1rem; }
   .contact-card { flex-direction: column; text-align: center; }
+
+  /* Scale down navbar logos slightly for mobile */
+  .nav-sponsor-img { height: 32px; }
+  .nav-sponsor-img--tall { height: 38px; }
+  .nav-sponsor-img--wide { height: 30px; }
+  .nav-divider { height: 26px; }
 }
