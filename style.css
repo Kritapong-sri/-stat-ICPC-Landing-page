@@ -1333,3 +1333,199 @@ a { color: inherit; text-decoration: none; }
     max-height: 380px;
   }
 }
+
+/* =============================================
+   SPONSORS
+   ============================================= */
+.sponsors-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.sponsor-tier {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.sponsor-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--clr-text-muted); /* Darker text for light background */
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+.sponsor-logos {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sponsor-logo-box {
+  background: #ffffff; /* Solid white background for perfect readability of dark logos */
+  border-radius: 14px;
+  padding: 16px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.06);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  width: 260px;
+  height: 90px; /* Uniform height for all sponsor logo boxes */
+}
+
+.sponsor-logo-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(124, 58, 237, 0.15);
+}
+
+.sponsor-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* =============================================
+   FOOTER CONTACT (REPLACES CONTACT & FOOTER)
+   ============================================= */
+.footer-contact {
+  background: #111827; /* Dark slate-900 like screenshot */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 64px 0 24px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-col h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-logo-img {
+  max-height: 56px;
+  width: auto;
+  object-fit: contain;
+  opacity: 1;
+  transition: var(--transition);
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.footer-address {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-address strong {
+  color: #fff;
+}
+
+.footer-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.coordinator-info {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4px;
+}
+
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.footer-contact-link:hover {
+  color: var(--clr-primary-lt);
+}
+
+.footer-icon {
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social-icons a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-social-icons a:hover {
+  background: var(--clr-primary);
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+.footer-social-icons a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 900px) {
+  .footer-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .footer-col-logo {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .sponsor-logo-box {
+    width: 220px;
+    height: 76px;
+    padding: 12px 24px;
+  }
+}
