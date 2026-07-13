@@ -159,19 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let searchQuery = '';
 
-  function getUniDisplayName(uni) {
-    if (uni.includes('Chulalongkorn')) return 'Chulalongkorn';
-    if (uni.includes('Kasetsart')) return 'Kasetsart';
-    if (uni.includes('Mahidol')) return 'Mahidol';
-    if (uni.includes('Ladkrabang')) return 'KMITL';
-    if (uni.includes('Thonburi')) return 'KMUTT';
-    if (uni.includes('Thammasat')) return 'Thammasat';
-    if (uni.includes('Silpakorn')) return 'Silpakorn';
-    if (uni.includes('CMKL')) return 'CMKL';
-    if (uni.includes('Thanyaburi')) return 'RMUTT';
-    return uni;
-  }
-
   function renderTeams() {
     container.innerHTML = '';
     
@@ -189,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.className = 'team-list-item';
         item.innerHTML = `
           <div class="team-list-name">${team.name}</div>
-          <div class="team-list-uni">${getUniDisplayName(team.institution)}</div>
+          <div class="team-list-uni">🎓 ${team.institution}</div>
         `;
         container.appendChild(item);
       });
