@@ -99,3 +99,159 @@ updateCountdown();
 
 console.log('%c ICPC Thailand 2026 – ภาคกลาง 🟣', 'color:#7c3aed; font-size:14px; font-weight:bold;');
 console.log('%c คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย', 'color:#a78bfa; font-size:11px;');
+
+
+// ---------- Contestant Teams Data & Interactive Grid ----------
+const contestantTeams = [
+  { name: "x4B 0x55", institution: "Chulalongkorn University" },
+  { name: "3Piggies", institution: "Chulalongkorn University" },
+  { name: "A Rai Na", institution: "Kasetsart University Bangkhen" },
+  { name: "AeyAeySaGaDungGaDingPaDungDing", institution: "Mahidol University" },
+  { name: "ANDORXOR", institution: "Mahidol University" },
+  { name: "auauP", institution: "King Mongkut's Institute of Technology Ladkrabang" },
+  { name: "BigO n is fine", institution: "Silpakorn University Phra Ratchawang Sanam Chan Campus" },
+  { name: "BNK42", institution: "King Mongkut's Institute of Technology Ladkrabang" },
+  { name: "BUG", institution: "King Mongkut's Institute of Technology Ladkrabang" },
+  { name: "CMKL Knickers", institution: "CMKL University" },
+  { name: "CSTUTEAM1", institution: "Thammasat University Rangsit Center" },
+  { name: "CSTUTEAM2", institution: "Thammasat University Rangsit Center" },
+  { name: "CSTUTEAM3", institution: "Thammasat University Rangsit Center" },
+  { name: "CSTUTEAM4", institution: "Thammasat University Rangsit Center" },
+  { name: "CunKieRook", institution: "Thammasat University" },
+  { name: "Freebies", institution: "Kasetsart University Bangkhen" },
+  { name: "Ggwp", institution: "Chulalongkorn University" },
+  { name: "Hold Your Horse", institution: "Mahidol University" },
+  { name: "How did we get here", institution: "Chulalongkorn University" },
+  { name: "I cant impl segment tree", institution: "Kasetsart University Bangkhen" },
+  { name: "I want to have BF", institution: "Chulalongkorn University" },
+  { name: "ICookPanCake", institution: "Chulalongkorn University" },
+  { name: "It worked on my machine", institution: "Kasetsart University Bangkhen" },
+  { name: "kod Teh jao ka", institution: "Rajamangala University of Technology Thanyaburi" },
+  { name: "Kuha", institution: "Chulalongkorn University" },
+  { name: "LankaTechno", institution: "Chulalongkorn University" },
+  { name: "LingLeast", institution: "King Mongkut's Institute of Technology Ladkrabang" },
+  { name: "LunarCroissant", institution: "Chulalongkorn University" },
+  { name: "Manchester United", institution: "CMKL University" },
+  { name: "MatchaGreenTea", institution: "Mahidol University" },
+  { name: "Me and the boys", institution: "King Mongkut's Institute of Technology Ladkrabang" },
+  { name: "Mue krue P Teh rue mai", institution: "Rajamangala University of Technology Thanyaburi" },
+  { name: "My Fella ACS", institution: "King Mongkut's University of Technology Thonburi" },
+  { name: "NoiNa Tae Mai Noi Na", institution: "Rajamangala University of Technology Thanyaburi" },
+  { name: "NSX", institution: "Mahidol University" },
+  { name: "Powerbug Girl", institution: "Kasetsart University Kamphaeng Saen Campus" },
+  { name: "Proof by AC", institution: "Chulalongkorn University" },
+  { name: "Slave of Crow", institution: "Mahidol University" },
+  { name: "Std", institution: "Chulalongkorn University" },
+  { name: "Syntax Error", institution: "Silpakorn University Phra Ratchawang Sanam Chan Campus" },
+  { name: "T2K", institution: "Kasetsart University Bangkhen" },
+  { name: "Team Name", institution: "Thammasat University Rangsit Center" },
+  { name: "The LAN to Your Heart", institution: "Silpakorn University Phra Ratchawang Sanam Chan Campus" },
+  { name: "Trust me just pray", institution: "Kasetsart University Bangkhen" },
+  { name: "Yutthahatthi", institution: "Chulalongkorn University" }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('teams-container');
+  const searchInput = document.getElementById('teams-search');
+  const filterButtons = document.querySelectorAll('#teams-filter-tags .filter-btn');
+  const noResults = document.getElementById('teams-no-results');
+
+  if (!container) return;
+
+  let activeFilter = 'all';
+  let searchQuery = '';
+
+  function getUniClass(uni) {
+    if (uni.includes('Chulalongkorn')) return 'badge-chula';
+    if (uni.includes('Kasetsart')) return 'badge-kasetsart';
+    if (uni.includes('Mahidol')) return 'badge-mahidol';
+    if (uni.includes('King Mongkut')) return 'badge-km-kmitl';
+    if (uni.includes('Thammasat')) return 'badge-thammasat';
+    if (uni.includes('Silpakorn')) return 'badge-silpakorn';
+    return 'badge-others';
+  }
+
+  function getUniDisplayName(uni) {
+    if (uni.includes('Chulalongkorn')) return 'Chulalongkorn';
+    if (uni.includes('Kasetsart')) return 'Kasetsart';
+    if (uni.includes('Mahidol')) return 'Mahidol';
+    if (uni.includes('Ladkrabang')) return 'KMITL';
+    if (uni.includes('Thonburi')) return 'KMUTT';
+    if (uni.includes('Thammasat')) return 'Thammasat';
+    if (uni.includes('Silpakorn')) return 'Silpakorn';
+    if (uni.includes('CMKL')) return 'CMKL';
+    if (uni.includes('Thanyaburi')) return 'RMUTT';
+    return uni;
+  }
+
+  function renderTeams() {
+    container.innerHTML = '';
+    
+    const filteredTeams = contestantTeams.filter(team => {
+      const matchesSearch = team.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            team.institution.toLowerCase().includes(searchQuery.toLowerCase());
+      
+      let matchesFilter = false;
+      if (activeFilter === 'all') {
+        matchesFilter = true;
+      } else if (activeFilter === 'others') {
+        matchesFilter = !team.institution.includes('Chulalongkorn') && 
+                        !team.institution.includes('Kasetsart') && 
+                        !team.institution.includes('Mahidol') && 
+                        !team.institution.includes("King Mongkut'") && 
+                        !team.institution.includes('Thammasat') && 
+                        !team.institution.includes('Silpakorn');
+      } else {
+        matchesFilter = team.institution.includes(activeFilter);
+      }
+
+      return matchesSearch && matchesFilter;
+    });
+
+    if (filteredTeams.length === 0) {
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+      filteredTeams.forEach(team => {
+        const card = document.createElement('div');
+        card.className = 'team-card glass reveal-slow';
+        card.innerHTML = `
+          <div>
+            <span class="team-uni-badge ${getUniClass(team.institution)}">${getUniDisplayName(team.institution)}</span>
+            <h3 class="team-card-name">${team.name}</h3>
+          </div>
+          <div class="team-card-uni">
+            <i data-lucide="graduation-cap"></i>
+            <span>${team.institution}</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      // Re-trigger Lucide icons for dynamically added elements
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+  }
+
+  // Search input handler
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderTeams();
+    });
+  }
+
+  // Filter tags handler
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.getAttribute('data-filter');
+      renderTeams();
+    });
+  });
+
+  // Initial render
+  renderTeams();
+});

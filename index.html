@@ -39,6 +39,7 @@
       <ul class="nav-links">
         <li><a href="#schedule">กำหนดการ</a></li>
         <li><a href="#venue">แผนที่</a></li>
+        <li><a href="#contestants">ผู้เข้าแข่งขัน</a></li>
         <li><a href="#info">ข้อมูล</a></li>
         <li><a href="#contact">ติดต่อ</a></li>
       </ul>
@@ -291,6 +292,46 @@
       </div>
 
 
+    </div>
+  </section>
+
+  <!-- ===== SECTION: CONTESTANTS ===== -->
+  <section class="section" id="contestants">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Contestants</span>
+        <h2 class="section-title">รายชื่อทีมผู้เข้าแข่งขัน</h2>
+        <p class="section-desc">รายชื่อทีมที่เข้าร่วมการแข่งขันรอบคัดเลือกภาคกลางประจำปี 2026</p>
+      </div>
+
+      <!-- Search & Filters Container -->
+      <div class="teams-control glass">
+        <div class="search-wrapper">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="teams-search" placeholder="ค้นหาชื่อทีม หรือมหาวิทยาลัย..." />
+        </div>
+        <div class="filter-tags" id="teams-filter-tags">
+          <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+          <button class="filter-btn" data-filter="Chulalongkorn University">Chula</button>
+          <button class="filter-btn" data-filter="Kasetsart University">Kasetsart</button>
+          <button class="filter-btn" data-filter="Mahidol University">Mahidol</button>
+          <button class="filter-btn" data-filter="King Mongkut'">KMUT / KMITL</button>
+          <button class="filter-btn" data-filter="Thammasat University">Thammasat</button>
+          <button class="filter-btn" data-filter="Silpakorn University">Silpakorn</button>
+          <button class="filter-btn" data-filter="others">อื่นๆ</button>
+        </div>
+      </div>
+
+      <!-- Teams Grid -->
+      <div class="teams-grid" id="teams-container">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+      
+      <!-- No Results State -->
+      <div class="no-results" id="teams-no-results" style="display: none;">
+        <i data-lucide="search" class="no-results-icon"></i>
+        <p>ไม่พบรายชื่อทีมที่ค้นหา</p>
+      </div>
     </div>
   </section>
 
