@@ -153,23 +153,11 @@ const contestantTeams = [
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('teams-container');
   const searchInput = document.getElementById('teams-search');
-  const filterButtons = document.querySelectorAll('#teams-filter-tags .filter-btn');
   const noResults = document.getElementById('teams-no-results');
 
   if (!container) return;
 
-  let activeFilter = 'all';
   let searchQuery = '';
-
-  function getUniClass(uni) {
-    if (uni.includes('Chulalongkorn')) return 'badge-chula';
-    if (uni.includes('Kasetsart')) return 'badge-kasetsart';
-    if (uni.includes('Mahidol')) return 'badge-mahidol';
-    if (uni.includes('King Mongkut')) return 'badge-km-kmitl';
-    if (uni.includes('Thammasat')) return 'badge-thammasat';
-    if (uni.includes('Silpakorn')) return 'badge-silpakorn';
-    return 'badge-others';
-  }
 
   function getUniDisplayName(uni) {
     if (uni.includes('Chulalongkorn')) return 'Chulalongkorn';
@@ -188,24 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
     container.innerHTML = '';
     
     const filteredTeams = contestantTeams.filter(team => {
-      const matchesSearch = team.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                            team.institution.toLowerCase().includes(searchQuery.toLowerCase());
-      
-      let matchesFilter = false;
-      if (activeFilter === 'all') {
-        matchesFilter = true;
-      } else if (activeFilter === 'others') {
-        matchesFilter = !team.institution.includes('Chulalongkorn') && 
-                        !team.institution.includes('Kasetsart') && 
-                        !team.institution.includes('Mahidol') && 
-                        !team.institution.includes("King Mongkut'") && 
-                        !team.institution.includes('Thammasat') && 
-                        !team.institution.includes('Silpakorn');
-      } else {
-        matchesFilter = team.institution.includes(activeFilter);
-      }
-
-      return matchesSearch && matchesFilter;
+      return team.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+             team.institution.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
     if (filteredTeams.length === 0) {
@@ -213,24 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       noResults.style.display = 'none';
       filteredTeams.forEach(team => {
-        const card = document.createElement('div');
-        card.className = 'team-card glass reveal-slow';
-        card.innerHTML = `
-          <div>
-            <span class="team-uni-badge ${getUniClass(team.institution)}">${getUniDisplayName(team.institution)}</span>
-            <h3 class="team-card-name">${team.name}</h3>
-          </div>
-          <div class="team-card-uni">
-            <i data-lucide="graduation-cap"></i>
-            <span>${team.institution}</span>
-          </div>
+        const item = document.createElement('div');
+        item.className = 'team-list-item';
+        item.innerHTML = `
+          <div class="team-list-name">${team.name}</div>
+          <div class="team-list-uni">${getUniDisplayName(team.institution)}</div>
         `;
-        container.appendChild(card);
+        container.appendChild(item);
       });
-      // Re-trigger Lucide icons for dynamically added elements
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
     }
   }
 
@@ -241,16 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
       renderTeams();
     });
   }
-
-  // Filter tags handler
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.getAttribute('data-filter');
-      renderTeams();
-    });
-  });
 
   // Initial render
   renderTeams();
