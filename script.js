@@ -70,13 +70,13 @@ document.addEventListener('mousemove', (e) => {
 function updateCountdown() {
   // วันอาทิตย์ที่ 19 กรกฎาคม 2569 → 2026-07-19
   const target = new Date('2026-07-19T08:00:00+07:00');
-  const now    = new Date();
-  const diff   = target - now;
+  const now = new Date();
+  const diff = target - now;
 
   if (diff <= 0) return; // competition day!
 
-  const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours   = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
 
@@ -86,11 +86,11 @@ function updateCountdown() {
     el.innerHTML = `
       <span class="cd-item"><span class="cd-num">${days}</span><span class="cd-label">วัน</span></span>
       <span class="cd-sep">:</span>
-      <span class="cd-item"><span class="cd-num">${String(hours).padStart(2,'0')}</span><span class="cd-label">ชั่วโมง</span></span>
+      <span class="cd-item"><span class="cd-num">${String(hours).padStart(2, '0')}</span><span class="cd-label">ชั่วโมง</span></span>
       <span class="cd-sep">:</span>
-      <span class="cd-item"><span class="cd-num">${String(minutes).padStart(2,'0')}</span><span class="cd-label">นาที</span></span>
+      <span class="cd-item"><span class="cd-num">${String(minutes).padStart(2, '0')}</span><span class="cd-label">นาที</span></span>
       <span class="cd-sep">:</span>
-      <span class="cd-item"><span class="cd-num">${String(seconds).padStart(2,'0')}</span><span class="cd-label">วินาที</span></span>
+      <span class="cd-item"><span class="cd-num">${String(seconds).padStart(2, '0')}</span><span class="cd-label">วินาที</span></span>
     `;
   }
 }
@@ -161,10 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderTeams() {
     container.innerHTML = '';
-    
+
     const filteredTeams = contestantTeams.filter(team => {
-      return team.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-             team.institution.toLowerCase().includes(searchQuery.toLowerCase());
+      return team.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        team.institution.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
     if (filteredTeams.length === 0) {

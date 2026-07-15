@@ -985,6 +985,30 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 
+.info-link {
+  color: var(--clr-primary);
+  font-weight: 600;
+  border-bottom: 2px dashed var(--clr-border);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.info-link:hover {
+  color: var(--clr-primary-dk);
+  border-bottom-color: var(--clr-primary-dk);
+}
+
+.info-link .inline-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
 /* =============================================
    CONTACT
    ============================================= */
